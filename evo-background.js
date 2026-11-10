@@ -11,7 +11,6 @@
 (() => {
   const canvas = document.getElementById('evo-bg');
   const ctx = canvas.getContext('2d');
-  const hud = document.getElementById('hud');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // ---- parameters --------------------------------------------------------
@@ -24,8 +23,7 @@
 
   let W, H, DPR, size;
   let peaks = [], pop = [];
-  let gen = 0, genStart = 0, lastT = 0, nextShift = 0, noteUntil = 0;
-  let best = 0;
+  let genStart = 0, lastT = 0, nextShift = 0;
 
   // low-res fitness heat map
   const heat = document.createElement('canvas');
@@ -82,7 +80,6 @@
         [a.th, b.th] = [b.th, a.th];
       }
       nextShift = now + rand(6500, 10000);
-      noteUntil = now + 2200;
     }
   }
 
@@ -99,7 +96,6 @@
   function nextGeneration() {
     for (const p of pop) p.f = fitness(p.x, p.y);
     pop.sort((a, b) => b.f - a.f);
-    best = pop[0].f;
 
     const n = pop.length;
     const mu = Math.max(4, Math.round(n * PARENT_FRACTION));
@@ -127,7 +123,6 @@
       });
     }
     pop = next;
-    gen++;
   }
 
   // ---- rendering ---------------------------------------------------------
@@ -179,11 +174,6 @@
     }
   }
 
-  function updateHud(now) {
-    const note = now < noteUntil ? '  ·  environment changed' : '';
-    hud.textContent = `generation ${gen}  ·  best fitness ${best.toFixed(2)}${note}`;
-  }
-
   // ---- main loop ---------------------------------------------------------
   function frame(now) {
     const dt = Math.min(now - lastT, 100);
@@ -195,7 +185,6 @@
     ctx.clearRect(0, 0, W, H);
     drawHeat();
     drawPop(now);
-    updateHud(now);
     requestAnimationFrame(frame);
   }
 
@@ -215,7 +204,6 @@
 
     initPeaks();
     initPop();
-    gen = 0;
 
     if (reduceMotion) {
       // static picture: let the population converge, draw once
@@ -224,7 +212,6 @@
       ctx.clearRect(0, 0, W, H);
       drawHeat();
       drawPop(genStart + GEN_MS);
-      updateHud(0);
     }
   }
 

@@ -38,20 +38,6 @@ body {
     z-index: 1;
 }
 
-#hud {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 10px;
-    text-align: center;
-    font-size: .75rem;
-    letter-spacing: .04em;
-    color: rgba(255, 255, 255, .45);
-    z-index: 1;
-    pointer-events: none;
-    font-variant-numeric: tabular-nums;
-}
-
 /* ---------- profile ---------- */
 #profilePicture, #profilePicture img {
     position: relative;

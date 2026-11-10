@@ -11,13 +11,13 @@
     <!-- Academicons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" />
     <!-- Core theme CSS -->
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css?v=3" />
   </head>
 
   <body>
     <!-- Evolutionary dynamic optimization background:
          a population tracking a moving fitness landscape -->
-    <canvas id="evo-bg" aria-hidden="true"></canvas>
+    <canvas id="evo-bg" aria-hidden="true" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none"></canvas>
 
     <main id="content">
       <a id="profilePicture" href="#popup">
@@ -47,8 +47,6 @@
       <div id="hashtag">#AlwaysAdapting</div>
     </main>
 
-    <div id="hud"></div>
-
     <div class="overlay" id="popup">
       <div class="popup">
         <div class="popup-photo">
@@ -63,6 +61,6 @@
       </div>
     </div>
 
-    <script src="evo-background.js"></script>
+    <script src="evo-background.js?v=3"></script>
   </body>
 </html>
