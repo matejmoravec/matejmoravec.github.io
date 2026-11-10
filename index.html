@@ -15,17 +15,39 @@
   </head>
 
   <body>
-    <!-- Parallax Pixel Background Animation -->
-    <section class="animated-background">
-      <div id="stars1"></div>
-      <div id="stars2"></div>
-      <div id="stars3"></div>
-    </section>
-    <!-- End of Parallax Pixel Background Animation -->
+    <!-- Evolutionary dynamic optimization background:
+         a population tracking a moving fitness landscape -->
+    <canvas id="evo-bg" aria-hidden="true"></canvas>
 
-    <a id="profilePicture" href="#popup">
-      <img src="https://avatars.githubusercontent.com/u/18573508" alt="Profile Picture">
-    </a>
+    <main id="content">
+      <a id="profilePicture" href="#popup">
+        <img src="https://avatars.githubusercontent.com/u/18573508" alt="Profile Picture">
+      </a>
+
+      <div id="userName">@matejmoravec</div>
+
+      <div id="links">
+        <a class="link" href="https://github.com/matejmoravec" target="_blank">
+          <i class="fab fa-github">&nbsp;</i>Github
+        </a>
+        <a class="link" href="https://www.linkedin.com/in/matej-moravec/" target="_blank">
+          <i class="fab fa-linkedin">&nbsp;</i>Linkedin
+        </a>
+        <a class="link" href="https://www.researchgate.net/profile/Matej-Moravec" target="_blank">
+          <i class="ai ai-researchgate">&nbsp;</i>ResearchGate
+        </a>
+        <a class="link" href="https://scholar.google.com/citations?user=DTmO5DUAAAAJ&hl=en" target="_blank">
+          <i class="ai ai-google-scholar">&nbsp;</i>Google Scholar
+        </a>
+        <a class="link" href="https://orcid.org/0000-0003-0756-3300" target="_blank">
+          <i class="ai ai-orcid">&nbsp;</i>ORCID
+        </a>
+      </div>
+
+      <div id="hashtag">#AlwaysAdapting</div>
+    </main>
+
+    <div id="hud"></div>
 
     <div class="overlay" id="popup">
       <div class="popup">
@@ -41,30 +63,6 @@
       </div>
     </div>
 
-    <div id="userName">
-      @matejmoravec
-    </div>
-
-    <div id="links">
-      <a class="link" href="https://github.com/matejmoravec" target="_blank">
-        <i class="fab fa-github">&nbsp;</i>Github
-      </a>
-      <a class="link" href="https://www.linkedin.com/in/matej-moravec/" target="_blank">
-        <i class="fab fa-linkedin">&nbsp;</i>Linkedin
-      </a>
-      <a class="link" href="https://www.researchgate.net/profile/Matej-Moravec" target="_blank">
-        <i class="ai ai-researchgate">&nbsp;</i>ResearchGate
-      </a>
-      <a class="link" href="https://scholar.google.com/citations?user=DTmO5DUAAAAJ&hl=en" target="_blank">
-        <i class="ai ai-google-scholar">&nbsp;</i>Google Scholar
-      </a>
-      <a class="link" href="https://orcid.org/0000-0003-0756-3300" target="_blank">
-        <i class="ai ai-orcid">&nbsp;</i>ORCID
-      </a>
-    </div>
-
-    <div id="hashtag">
-      #TimeFlies
-    </div>
+    <script src="evo-background.js"></script>
   </body>
 </html>
